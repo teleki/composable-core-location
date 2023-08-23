@@ -49,7 +49,7 @@ extension LocationManager {
       },
       delegate: { delegate },
       dismissHeadingCalibrationDisplay: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
             manager.dismissHeadingCalibrationDisplay()
           #endif
@@ -93,17 +93,17 @@ extension LocationManager {
         #endif
       },
       requestAlwaysAuthorization: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
             manager.requestAlwaysAuthorization()
           #endif
         }
       },
       requestLocation: {
-        .fireAndForget { manager.requestLocation() }
+        .run { send in manager.requestLocation() }
       },
       requestWhenInUseAuthorization: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
             manager.requestWhenInUseAuthorization()
           #endif
@@ -173,70 +173,70 @@ extension LocationManager {
         #endif
       },
       startMonitoringForRegion: { region in
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(macOS) || targetEnvironment(macCatalyst)
             manager.startMonitoring(for: region.rawValue!)
           #endif
         }
       },
       startMonitoringSignificantLocationChanges: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || targetEnvironment(macCatalyst)
             manager.startMonitoringSignificantLocationChanges()
           #endif
         }
       },
       startMonitoringVisits: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || targetEnvironment(macCatalyst)
             manager.startMonitoringVisits()
           #endif
         }
       },
       startUpdatingHeading: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
             manager.startUpdatingHeading()
           #endif
         }
       },
       startUpdatingLocation: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
             manager.startUpdatingLocation()
           #endif
         }
       },
       stopMonitoringForRegion: { region in
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(macOS) || targetEnvironment(macCatalyst)
             manager.stopMonitoring(for: region.rawValue!)
           #endif
         }
       },
       stopMonitoringSignificantLocationChanges: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || targetEnvironment(macCatalyst)
             manager.stopMonitoringSignificantLocationChanges()
           #endif
         }
       },
       stopMonitoringVisits: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || targetEnvironment(macCatalyst)
             manager.stopMonitoringVisits()
           #endif
         }
       },
       stopUpdatingHeading: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(watchOS) || targetEnvironment(macCatalyst)
             manager.stopUpdatingHeading()
           #endif
         }
       },
       stopUpdatingLocation: {
-        .fireAndForget {
+        .run { send in
           #if os(iOS) || os(macOS) || os(watchOS) || targetEnvironment(macCatalyst)
             manager.stopUpdatingLocation()
           #endif
